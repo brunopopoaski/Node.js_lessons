@@ -1,6 +1,5 @@
 import express from "express";
 const app = express();
-
 //indica que o express deve interpretar as requisições (nesse caso o body) como json
 app.use(express.json());
 
@@ -34,6 +33,13 @@ app.delete("/selecoes/:id", (req, res) => {
     const index = parseInt(req.params.id)//transforma o id recebido em numero, dava para passar direto no .json
     listSelecoes.splice((buscarPosicaoSelecaoPorId(parseInt(req.params.id))),1);
     res.send(`Seleção ${index} deletada com sucesso!`);
+})
+
+app.put("/selecoes/:id", (req, res) => {
+    const index = parseInt(req.params.id)//transforma o id recebido em numero, dava para passar direto no .json
+    listSelecoes[index].nome = req.body.nome
+    listSelecoes[index].continente = req.body.continente
+    res.json(listSelecoes);
 })
 
 //criando uma rota para adicionar uma nova seleção

@@ -4,7 +4,7 @@ const conexao = myql.createConnection({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'Ps3enois!',
+    password: '',
     database: 'bd_copa'
 })
 
